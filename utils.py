@@ -29,3 +29,9 @@ def prime_gen():
                 D.setdefault(p+q,[]).append(p)
             del D[q]       # no longer need D[q], free memory
         q += 1
+
+def sliding_window(seq, size):
+    " Generate sliding windows subsequence"
+    for start in range(len(seq) + 1 - size):
+        yield seq[start:start+size]
+
