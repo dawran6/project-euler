@@ -1,4 +1,5 @@
 "Utilities to help solving problems."
+import itertools
 
 def prime_factors(num):
     i = 2
@@ -35,3 +36,11 @@ def sliding_window(seq, size):
     for start in range(len(seq) + 1 - size):
         yield seq[start:start+size]
 
+def triangular_gen():
+    """ Generate an infinite sequence of triangular numbers."""
+    tri = 0
+    c = itertools.count()
+    next(c)
+    for i in c:
+        tri += i
+        yield tri
