@@ -33,6 +33,14 @@ def divisors(num):
             )
     )
 
+def sum_of_proper_divisors(num):
+    """ Return the sum of num's proper divisors.
+
+    Example:
+        sum_of_proper_divisors(28) = 1 + 2 + 4 + 7 + 14 = 28
+    """
+    return sum(divisors(num)) - num
+
 def prime_gen():
     """ Generate an infinite sequence of prime numbers.
 
