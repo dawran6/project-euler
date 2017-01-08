@@ -1,7 +1,11 @@
 "Utilities to help solving problems."
 import itertools
+import functools
+from collections import Counter
+from operator import mul, pow
 
 def prime_factors(num):
+    """ Yield the factors of a given number."""
     i = 2
     while i * i <= num:
         if num % i:
@@ -11,6 +15,23 @@ def prime_factors(num):
             yield i
     if num > 1:
         yield num
+
+def count_prime_factors(num):
+    """ Return a collections.Counter object of all the prime factors and its
+    counts."""
+    return Counter(prime_factors(num))
+
+def divisors(num):
+    """ Return a sorted list of all divisors of num."""
+    counts = count_prime_factors(num)
+    p, p_counts = counts.keys(), counts.values()
+    return sorted(
+            functools.reduce(mul, map(pow, p, exponents))
+            for exponents
+            in itertools.product(
+                    *map(lambda x: range(x+1), p_counts)
+            )
+    )
 
 def prime_gen():
     """ Generate an infinite sequence of prime numbers.
