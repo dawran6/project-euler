@@ -73,3 +73,10 @@ def triangular_gen():
     for i in c:
         tri += i
         yield tri
+
+def fibonacci_gen():
+    """ Generate the infinite sequence of Fibonacci numbers."""
+    n, m = 0, 1
+    while True:
+        yield m
+        n, m = m, n + m
