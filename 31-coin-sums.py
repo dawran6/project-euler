@@ -1,17 +1,17 @@
-def coin_change(left, coins, count):
-    if left == 0:
-        return count
+def coin_change(total, coins):
+    if total == 0:
+        return 1
 
-    if not coins:
+    if total < 0:
         return 0
 
-    coin, *coins_left = coins
-    return sum(coin_change(left-coin*i, coins_left, count+1)
-               for i
-               in range(0, left//coin))
+    if not coins and total > 0:
+        return 0
+
+    return coin_change(total-coins[0], coins) + coin_change(total, coins[1:])
 
 
 if __name__ == '__main__':
-    coins = [200, 100, 50, 20, 10, 5, 2, 1]
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
     total = 200
-    ans = coin_change(total, coins, 0)
+    ans = coin_change(total, coins)
