@@ -80,3 +80,6 @@ def fibonacci_gen():
     while True:
         yield m
         n, m = m, n + m
+
+def palindrom(number: str):
+    return number == number[::-1]
