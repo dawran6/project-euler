@@ -8,5 +8,12 @@ def threes_and_fives_gen(num=1000):
 def threes_and_fives_fun(n):
     return set(chain(range(3, n+1, 3), range(5, n+1, 5)))
 
+def solve(n):
+    return sum(
+        filter(lambda x: x%3==0 or x%5==0,
+               range(1, n)
+        )
+    )
+
 if __name__ == '__main__':
-    print(sum(threes_and_fives_gen(10000000)))
+    print(sum(three_and_fives_gen(10000000)))
