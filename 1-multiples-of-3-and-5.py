@@ -15,5 +15,12 @@ def solve(n):
         )
     )
 
+def solve_2(n):
+    return sum(
+            x
+            for x in range(1, n)
+            if x%3==0 or x%5==0
+    )
+
 if __name__ == '__main__':
-    print(sum(three_and_fives_gen(10000000)))
+    print(solve_2(1000000))
