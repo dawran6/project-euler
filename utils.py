@@ -5,7 +5,7 @@ from collections import Counter
 from operator import mul, pow
 
 def prime_factors(num):
-    """ Yield the factors of a given number."""
+    """ Yield the prime factors of a given number."""
     i = 2
     while i * i <= num:
         if num % i:
